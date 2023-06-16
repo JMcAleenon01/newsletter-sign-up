@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Frontend Mentor | Newsletter sign-up form with success message</title>
+
+  <script>
+    function submission() {
+
+      // scrap all this and just add the section in, also set up
+      // js to pass email value to success page
+      var newsImgChange = document.getElementById("newsletter-top-image");
+      var newsHeader = document.getElementById("newsletter-header");
+      var newsSubheader = document.getElementById("newsletter-subheader");
+      var newsList = document.getElementById("newsletter-list");
+      var newsLabel = document.getElementById("newsletter-label");
+      var newsEmail = document.getElementById("newsletter-email");
+      var newsButton = document.getElementById("newsletter-btn");
+
+      newsImgChange.src = "assets/images/icon-list.svg";
+      newsImgChange.style.width = "25%";
+      newsHeader.innerHTML = "Thanks for Subscribing!";
+      newsSubheader.innerHTML = "A confirmation email has been sent to <b>ash@loremcompany.com</b>. Please open it and click the button inside to confirm your subscription.";
+      newsList.style.display = "none";
+      newsLabel.style.display = "none";
+      newsEmail.style.display = "none";
+      newsButton.innerHTML = "Dismiss Message";
+      newsButton.style.background = "#242742";            
+    }
+  </script>
+
+</head>
+<body>
+
+  <!-- Sign-up form start -->
+    <main>
+      <img class="newsletter-mobile" id="newsletter-top-image" src="assets\images\illustration-sign-up-mobile.svg" alt="">
+      <section>
+        <h1 id="newsletter-header">Stay updated!</h1>
+        <h2 id="newsletter-subheader">Join 60,000+ product managers receiving monthly updates on:</h2>
+        <ul id="newsletter-list">
+          <li><img src="assets/images/icon-list.svg" alt=""><p>Product discovery and building what matters</p></li>
+          <li><img src="assets/images/icon-list.svg" alt=""><p>Measuring to ensure updates are a success</p></li>
+          <li><img src="assets/images/icon-list.svg" alt=""><p>And much more!</p></li>
+        </ul>
+        <form>
+          <label id="newsletter-label" for="">Email address</label>
+          <input id="newsletter-email" type="email" placeholder="email@company.com" required></input>
+          <button id="newsletter-btn" type="submit" onclick="submission()">Subscribe to monthly newsletter</button>
+        </form>
+        <!-- Sign-up form end -->
+        
+        <!-- Success message start -->
+        <!-- ideally I am using JS to change the text above into this below -->
+        <section style="display:none">
+          <img src="assets/images/icon-list.svg" alt="">
+          <h1>Thanks for subscribing!</h1>
+          
+          <button>Dismiss message</button>
+        </section>
+        <!-- Success message end -->
+      </section>
+      <img class="newsletter-desktop" src="assets/images/illustration-sign-up-desktop.svg" alt="">
+    </main>
+</body>
+</html>

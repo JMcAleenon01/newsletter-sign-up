@@ -19,7 +19,7 @@ body {
     color: var(--darkSlateGrey);
     display: grid;
     place-items: center;
-    /* background-image: url("../design/desktop-design.jpg");
+    /* background-image: url("../design/desktop-success.jpg");
     background-repeat: no-repeat;
     background-position: center; */
 }
@@ -35,26 +35,27 @@ main {
     /* opacity: 0.3; */
 }
 
-main img {
-    width: 100%;
+.newsletter-mobile {
+    height: 12.3rem;
+    width:100%;
+    object-fit: cover;
 }
 
 section {
     display: flex;
     flex-direction: column;
-    margin: 0 20px;
+    margin: 0 24px;
 }
 
 section h1 {
-    font-size: 34px;
+    font-size: 2.53rem;
     font-weight: 700;
-    margin: 25px 0;
+    margin: 35px 0 20px 0;
 }
 
 section h2 {
     font-size: inherit;
     font-weight: inherit;
-    margin: 5px 0;
 }
 
 ul {
@@ -73,7 +74,7 @@ ul li {
 
 ul li img {
     width: 18px;
-    margin-right: 10px;
+    margin-right: 19px;
 }
 
 ul li p {
@@ -81,12 +82,21 @@ ul li p {
 
 main form {
     display: flex;
+    position: relative;
     flex-direction: column;
+    margin-top: 9px;
+}
+
+#newsletter-error {
+    text-align: end;
+    color: lightcoral;
+    position: absolute;
+    width: 100%;
 }
 
 main form label {
-    font-size: 14px;
-    margin-top:20px;
+    font-size: 0.75rem;
+    margin-top: 20px;
     font-weight: 700;
 }
 
@@ -98,7 +108,7 @@ main form input {
     border: 1px solid var(--grey);
 }
 
-main form button {
+main button {
     padding: 19px 25px;
     margin: 13px 0;
     font-weight: inherit;
@@ -115,10 +125,34 @@ main button:hover {
     border: none;
 }
 
+main button:active {
+    background-color: var(--darkSlateGrey);
+}
+
 main form input:invalid:required {
     border: 1px solid red;
     background-color: lightcoral;
     color: var(--tomato);
+}
+
+#end-section {
+    display: none;
+}
+
+/* success page styling */
+
+#end-section {
+    display: none;
+    height: 100vh;
+}
+
+#end-section img {
+    width: 3.9rem;
+    margin-top: 16rem;
+}
+
+#end-section button {
+    margin-top: 17.3rem;
 }
 
 
@@ -192,5 +226,36 @@ main form input:invalid:required {
         margin: 7px 0;
         display: flex;
         align-items: center;
+    }
+
+    /* success page styling */
+    #end-section {
+        display: none;
+        height: 100vh;
+        padding: 0 2.7rem;
+    }
+    
+    #end-section img {
+        width: 3.9rem;
+        margin-top: 1.7rem;
+    }
+
+    #end-section h1 {
+        font-size: 3.4rem;
+        letter-spacing: 0.7px;
+        margin: 35px 0 17px 0;
+    }
+
+    #end-section h2 {
+
+    }
+    
+    #end-section button {
+        margin-top: 3rem;
+    }
+
+    .desktop-success {
+        height: 32.8rem;
+        width: 31.7rem;
     }
 }

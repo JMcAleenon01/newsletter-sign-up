@@ -13,26 +13,28 @@
 
   <script>
     function submission() {
-
+      event.preventDefault(); 
       // scrap all this and just add the section in, also set up
       // js to pass email value to success page
-      var newsImgChange = document.getElementById("newsletter-top-image");
-      var newsHeader = document.getElementById("newsletter-header");
-      var newsSubheader = document.getElementById("newsletter-subheader");
-      var newsList = document.getElementById("newsletter-list");
-      var newsLabel = document.getElementById("newsletter-label");
+      var newsMain = document.getElementById("main");
+      var newsMobileChange = document.getElementById("newsletter-mobile-image");
+      var newsDeskChange = document.getElementById("newsletter-desktop-image");
+      var newsSection = document.getElementById("newsletter-sign-up");
       var newsEmail = document.getElementById("newsletter-email");
-      var newsButton = document.getElementById("newsletter-btn");
+      var customerEmail = document.getElementById("customer-email");
+      var endSection = document.getElementById("end-section");
 
-      newsImgChange.src = "assets/images/icon-list.svg";
-      newsImgChange.style.width = "25%";
-      newsHeader.innerHTML = "Thanks for Subscribing!";
-      newsSubheader.innerHTML = "A confirmation email has been sent to <b>ash@loremcompany.com</b>. Please open it and click the button inside to confirm your subscription.";
-      newsList.style.display = "none";
-      newsLabel.style.display = "none";
-      newsEmail.style.display = "none";
-      newsButton.innerHTML = "Dismiss Message";
-      newsButton.style.background = "#242742";            
+      var customerEmailValue = newsEmail.value;
+
+      newsMain.classList.add("desktop-success");
+
+      newsMobileChange.style.display = "none";
+      newsDeskChange.style.display = "none";
+      newsSection.style.display = "none";
+      endSection.style.display = "flex";
+
+      customerEmail.innerHTML = customerEmailValue;   
+   
     }
   </script>
 
@@ -40,34 +42,35 @@
 <body>
 
   <!-- Sign-up form start -->
-    <main>
-      <img class="newsletter-mobile" id="newsletter-top-image" src="assets\images\illustration-sign-up-mobile.svg" alt="">
-      <section>
-        <h1 id="newsletter-header">Stay updated!</h1>
-        <h2 id="newsletter-subheader">Join 60,000+ product managers receiving monthly updates on:</h2>
-        <ul id="newsletter-list">
+    <main id="main">
+      <img class="newsletter-mobile" id="newsletter-mobile-image" src="assets\images\illustration-sign-up-mobile.svg" alt="">
+      <section id="newsletter-sign-up">
+        <h1>Stay updated!</h1>
+        <h2>Join 60,000+ product managers receiving monthly updates on:</h2>
+        <ul>
           <li><img src="assets/images/icon-list.svg" alt=""><p>Product discovery and building what matters</p></li>
           <li><img src="assets/images/icon-list.svg" alt=""><p>Measuring to ensure updates are a success</p></li>
           <li><img src="assets/images/icon-list.svg" alt=""><p>And much more!</p></li>
         </ul>
         <form>
-          <label id="newsletter-label" for="">Email address</label>
-          <input id="newsletter-email" type="email" placeholder="email@company.com" required></input>
+          <label for="">Email address</label>
+          <label id="newsletter-error" for="">Valid email required</label>
+          <input id="newsletter-email" type="email" placeholder="email@company.com"></input>
           <button id="newsletter-btn" type="submit" onclick="submission()">Subscribe to monthly newsletter</button>
         </form>
-        <!-- Sign-up form end -->
-        
-        <!-- Success message start -->
-        <!-- ideally I am using JS to change the text above into this below -->
-        <section style="display:none">
-          <img src="assets/images/icon-list.svg" alt="">
-          <h1>Thanks for subscribing!</h1>
-          
-          <button>Dismiss message</button>
-        </section>
-        <!-- Success message end -->
+        <!-- Sign-up form end -->  
       </section>
-      <img class="newsletter-desktop" src="assets/images/illustration-sign-up-desktop.svg" alt="">
+      <img class="newsletter-desktop" id="newsletter-desktop-image" src="assets/images/illustration-sign-up-desktop.svg" alt="">
+
+      <!-- Success message start -->
+      <!-- ideally I am using JS to change the text above into this below -->
+      <section id="end-section">
+        <img src="assets/images/icon-list.svg" alt="">
+        <h1>Thanks for subscribing!</h1>
+        <h2 id="newsletter-h2">A confirmation email has been sent to <b id="customer-email" ></b>. Please open it and click the button inside to confirm your subscription.</h2>
+        <button>Dismiss message</button>
+      </section>
+      <!-- Success message end -->
     </main>
 </body>
 </html>
